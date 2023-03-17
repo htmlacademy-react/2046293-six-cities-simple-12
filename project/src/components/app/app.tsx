@@ -28,7 +28,7 @@ function App({numberOffers, offers}: AppProps): JSX.Element {
           path={AppRoute.Room}
           element={
             <PrivateRoute
-              authorizationStatus={AuthorizationStatus.NoAuth}
+              authorizationStatus={AuthorizationStatus.Auth}
             >
               <Room />
             </PrivateRoute>
