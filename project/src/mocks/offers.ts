@@ -13,7 +13,11 @@ export const OFFERS: Offers = [
     },
     'description': 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
     'goods': [
-      'Heating'
+      'Heating',
+      'WiFi',
+      'Cabel TV',
+      'Coffee machine',
+      'Kitchen'
     ],
     'host': {
       'avatarUrl': 'img/1.png',

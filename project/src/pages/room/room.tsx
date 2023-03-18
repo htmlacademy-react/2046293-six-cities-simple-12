@@ -1,9 +1,16 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-console */
+import { useParams } from 'react-router-dom';
 import Logo from '../../components/logo/logo';
 import CommentSub from '../../components/сomment-sub/comment-sub';
+import { OFFERS } from '../../mocks/offers';
+
 
 function Room(): JSX.Element {
+  const { id } = useParams();
+
+  const offerRoom = OFFERS.find((offer) => offer.id === Number(id));
+  console.log(offerRoom);
+
   return (
     <div className="page">
       <div style={{display: 'none'}}>
@@ -23,7 +30,7 @@ function Room(): JSX.Element {
                   </div>
                 </li>
                 <li className="header__nav-item">
-                  <a className="header__nav-link" href="#">
+                  <a className="header__nav-link" href="/">
                     <span className="header__signout">Sign out</span>
                   </a>
                 </li>
@@ -38,22 +45,22 @@ function Room(): JSX.Element {
           <div className="property__gallery-container container">
             <div className="property__gallery">
               <div className="property__image-wrapper">
-                <img className="property__image" src="img/room.jpg" alt="Photo studio" />
+                <img className="property__image" src="img/room.jpg" alt="studio" />
               </div>
               <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
+                <img className="property__image" src="img/apartment-01.jpg" alt="studio" />
               </div>
               <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-02.jpg" alt="Photo studio" />
+                <img className="property__image" src="img/apartment-02.jpg" alt="studio" />
               </div>
               <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-03.jpg" alt="Photo studio" />
+                <img className="property__image" src="img/apartment-03.jpg" alt="studio" />
               </div>
               <div className="property__image-wrapper">
-                <img className="property__image" src="img/studio-01.jpg" alt="Photo studio" />
+                <img className="property__image" src="img/studio-01.jpg" alt="studio" />
               </div>
               <div className="property__image-wrapper">
-                <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
+                <img className="property__image" src="img/apartment-01.jpg" alt="studio" />
               </div>
             </div>
           </div>
@@ -92,36 +99,7 @@ function Room(): JSX.Element {
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
-                  <li className="property__inside-item">
-                    Wi-Fi
-                  </li>
-                  <li className="property__inside-item">
-                    Washing machine
-                  </li>
-                  <li className="property__inside-item">
-                    Towels
-                  </li>
-                  <li className="property__inside-item">
-                    Heating
-                  </li>
-                  <li className="property__inside-item">
-                    Coffee machine
-                  </li>
-                  <li className="property__inside-item">
-                    Baby seat
-                  </li>
-                  <li className="property__inside-item">
-                    Kitchen
-                  </li>
-                  <li className="property__inside-item">
-                    Dishwasher
-                  </li>
-                  <li className="property__inside-item">
-                    Cabel TV
-                  </li>
-                  <li className="property__inside-item">
-                    Fridge
-                  </li>
+                  <li className="property__inside-item">123</li>
                 </ul>
               </div>
               <div className="property__host">
@@ -184,8 +162,8 @@ function Room(): JSX.Element {
             <div className="near-places__list places__list">
               <article className="near-places__card place-card">
                 <div className="near-places__image-wrapper place-card__image-wrapper">
-                  <a href="#">
-                    <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="Place image" />
+                  <a href="/">
+                    <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="Place" />
                   </a>
                 </div>
                 <div className="place-card__info">
@@ -202,7 +180,7 @@ function Room(): JSX.Element {
                     </div>
                   </div>
                   <h2 className="place-card__name">
-                    <a href="#">Wood and stone place</a>
+                    <a href="/">Wood and stone place</a>
                   </h2>
                   <p className="place-card__type">Private room</p>
                 </div>
@@ -210,8 +188,8 @@ function Room(): JSX.Element {
 
               <article className="near-places__card place-card">
                 <div className="near-places__image-wrapper place-card__image-wrapper">
-                  <a href="#">
-                    <img className="place-card__image" src="img/apartment-02.jpg" width="260" height="200" alt="Place image" />
+                  <a href="/">
+                    <img className="place-card__image" src="img/apartment-02.jpg" width="260" height="200" alt="Place" />
                   </a>
                 </div>
                 <div className="place-card__info">
@@ -228,7 +206,7 @@ function Room(): JSX.Element {
                     </div>
                   </div>
                   <h2 className="place-card__name">
-                    <a href="#">Canal View Prinsengracht</a>
+                    <a href="/">Canal View Prinsengracht</a>
                   </h2>
                   <p className="place-card__type">Apartment</p>
                 </div>
@@ -239,8 +217,8 @@ function Room(): JSX.Element {
                   <span>Premium</span>
                 </div>
                 <div className="near-places__image-wrapper place-card__image-wrapper">
-                  <a href="#">
-                    <img className="place-card__image" src="img/apartment-03.jpg" width="260" height="200" alt="Place image" />
+                  <a href="/">
+                    <img className="place-card__image" src="img/apartment-03.jpg" width="260" height="200" alt="Place" />
                   </a>
                 </div>
                 <div className="place-card__info">
@@ -257,7 +235,7 @@ function Room(): JSX.Element {
                     </div>
                   </div>
                   <h2 className="place-card__name">
-                    <a href="#">Nice, cozy, warm big bed apartment</a>
+                    <a href="/">Nice, cozy, warm big bed apartment</a>
                   </h2>
                   <p className="place-card__type">Apartment</p>
                 </div>

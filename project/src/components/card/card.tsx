@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import { Offer } from '../../types/offer';
 import { Link } from 'react-router-dom';
 
@@ -14,7 +12,7 @@ function Card ({offer, activeId, onMouseOverHandler }: CardProps): JSX.Element {
   const starRating = `${Math.round(rating) / 5 * 100}%`;
 
   return (
-    <article className={`cities__card place-card ${activeId === id ? 'active-card' : ''}`}>
+    <article className='cities__card place-card'>
       {isPremium ? (
         <div className="place-card__mark">
           <span>Premium</span>
@@ -24,7 +22,7 @@ function Card ({offer, activeId, onMouseOverHandler }: CardProps): JSX.Element {
       )}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <Link to={`/offer/${id}`}>
-          <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="Place image" />
+          <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt='Place' />
         </Link>
       </div>
       <div className="place-card__info">
@@ -40,7 +38,11 @@ function Card ({offer, activeId, onMouseOverHandler }: CardProps): JSX.Element {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name">{title}</h2>
+        <h2 className="place-card__name">
+          <Link to={`/offer/${id}`} >
+            {title}
+          </Link>
+        </h2>
         <p className="place-card__type">{type}</p>
       </div>
     </article>

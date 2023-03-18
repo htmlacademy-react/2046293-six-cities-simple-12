@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useState } from 'react';
 
 function CommentSub (): JSX.Element {
@@ -10,6 +11,7 @@ function CommentSub (): JSX.Element {
     const {name, value} = evt.target;
     setFormData({...formData, [name]: value});
   };
+  console.log(formData);
 
   return (
     <form className="reviews__form form" action="#" method="post">
