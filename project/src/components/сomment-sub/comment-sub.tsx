@@ -7,8 +7,8 @@ function CommentSub (): JSX.Element {
     review: '',
   });
 
-  const fieldChangeHandle = (evt: { target: { name: string; value: number | string }}): void => {
-    const {name, value} = evt.target;
+  const fieldChangeHandle = (event: { target: { name: string; value: string | number } }): void => {
+    const {name, value} = event.target;
     setFormData({...formData, [name]: value});
   };
   console.log(formData);
