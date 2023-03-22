@@ -5,6 +5,7 @@ import CommentSub from '../../components/сomment-sub/comment-sub';
 import { OFFERS } from '../../mocks/offers';
 import { Offer } from '../../types/offer';
 
+
 function Room(): JSX.Element {
   const { id } = useParams();
 

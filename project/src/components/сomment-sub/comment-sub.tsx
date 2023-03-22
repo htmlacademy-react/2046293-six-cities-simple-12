@@ -3,13 +3,15 @@ import { useState } from 'react';
 
 const RATING = [5, 4, 3, 2, 1];
 
+type StringOrNum = string | number;
+
 function CommentSub (): JSX.Element {
   const [formData, setFormData] = useState({
     rating: '',
     review: '',
   });
 
-  const fieldChangeHandle = (event: { target: { name: string; value: string | number } }): void => {
+  const fieldChangeHandle = (event: { target: { name: string; value: StringOrNum } }): void => {
     const {name, value} = event.target;
     setFormData({...formData, [name]: value});
   };
