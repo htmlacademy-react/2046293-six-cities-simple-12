@@ -1,13 +1,15 @@
-import Card from '../../components/card/card';
+import CardList from '../../components/card-list/card-list';
 import Header from '../../components/header/header';
 import Filters from '../../components/filters/filters';
 import Map from '../../components/map/map';
+import { Offers } from '../../types/offer';
 
 type MainScreenProps = {
   numberOffers: number;
+  offers: Offers;
 }
 
-function Main({numberOffers}: MainScreenProps): JSX.Element {
+function Main({numberOffers, offers}: MainScreenProps): JSX.Element {
   return (
     <body className="page page--gray page--main">
       <Header />
@@ -36,14 +38,7 @@ function Main({numberOffers}: MainScreenProps): JSX.Element {
                   <li className="places__option" tabIndex ={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-              </div>
+              <CardList offers={offers}/>
             </section>
             <Map />
           </div>
