@@ -2,14 +2,31 @@ import CardList from '../../components/card-list/card-list';
 import Header from '../../components/header/header';
 import Filters from '../../components/filters/filters';
 import Map from '../../components/map/map';
-import { Offers } from '../../types/offer';
+import { Offers, Offer } from '../../types/offer';
+import { City } from '../../types/points';
+import { useState } from 'react';
 
 type MainScreenProps = {
-  numberOffers: number;
-  offers: Offers;
+  placeSelection: number;
+  places: Offers;
+  city: City;
 }
 
-function Main({numberOffers, offers}: MainScreenProps): JSX.Element {
+function Main(props: MainScreenProps): JSX.Element {
+  const {placeSelection, places, city} = props;
+
+  const [selectedPoint, setSelectedPoint] = useState<Offer | undefined> (
+    undefined
+  );
+
+  const onListItemHover = (id: number) => {
+    const currentPoint = places.find((offer) =>
+      offer.id === id,
+    );
+    setSelectedPoint(currentPoint);
+  };
+
+
   return (
     <body className="page page--gray page--main">
       <Header />
@@ -22,7 +39,7 @@ function Main({numberOffers, offers}: MainScreenProps): JSX.Element {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{numberOffers} places to stay in Amsterdam</b>
+              <b className="places__found">{placeSelection} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex ={0}>
@@ -38,9 +55,9 @@ function Main({numberOffers, offers}: MainScreenProps): JSX.Element {
                   <li className="places__option" tabIndex ={0}>Top rated first</li>
                 </ul>
               </form>
-              <CardList offers={offers}/>
+              <CardList offers={places} onListItemHover={onListItemHover}/>
             </section>
-            <Map />
+            <Map city={city} places={places} selectedPoint={selectedPoint}/>
           </div>
         </div>
       </main>

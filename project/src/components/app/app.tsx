@@ -5,20 +5,24 @@ import { AppRoute, AuthorizationStatus } from '../../const/const';
 import PageError from '../page-error/page-error';
 import PrivateRoute from '../private-route/private-route';
 import { Offers } from '../../types/offer';
+import { City } from '../../types/points';
 import Room from '../../pages/room/room';
 
 type AppProps = {
-  numberOffers: number;
-  offers: Offers;
+  placeSelection: number;
+  places: Offers;
+  city: City;
 }
 
-function App({numberOffers, offers}: AppProps): JSX.Element {
+function App(props: AppProps): JSX.Element {
+  const {placeSelection, places, city} = props;
+
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Main}
-          element={<Main numberOffers={numberOffers} offers={offers}/>}
+          element={<Main placeSelection={placeSelection} places={places} city={city}/>}
         />
         <Route
           path={AppRoute.Login}
