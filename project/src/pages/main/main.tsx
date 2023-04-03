@@ -15,9 +15,7 @@ type MainScreenProps = {
 function Main(props: MainScreenProps): JSX.Element {
   const {placeSelection, places, city} = props;
 
-  const [selectedPoint, setSelectedPoint] = useState<Offer | undefined> (
-    undefined
-  );
+  const [selectedPoint, setSelectedPoint] = useState<Offer | undefined> (undefined);
 
   const onListItemHover = (id: number) => {
     const currentPoint = places.find((offer) =>
